@@ -1,4 +1,4 @@
-# EcoPlay | Landing Page
+# EcoPlay | Web
 Lading Page do projeto EcoPlay, que tem sido o meu principal projeto nos últimos tempos, justamente por ser meu Trabalho de Conclusão de Curso ou TCC
 
 <br>
