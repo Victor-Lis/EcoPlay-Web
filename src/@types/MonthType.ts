@@ -1,9 +1,8 @@
-import { CapType } from "./CapType"
+import type { CapType } from "./CapType"
+import type { DayType } from "./DayType"
 
 export type MonthType = {
   mes: string,
-  dias: {
-    dia: string,
-    tampinhas: CapType[]
-  }[]
+  dias: DayType[];
+  tampinhas: number
 }

@@ -36,7 +36,7 @@ export function formatCapByDate({ caps }: { caps: CapType[] }): any[] {
   });
 
   const result: YearType[] = [];
-  formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 9) || []})
+  formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === new Date().getMonth()+1) || []})
   anos.map((ano) => {
     result.push({
       ano,
@@ -44,55 +44,69 @@ export function formatCapByDate({ caps }: { caps: CapType[] }): any[] {
         {
           mes: "Janeiro",
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 1 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 1).length
         },
         {
           mes: "Fevereiro", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 2 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 2 && cap.ano === ano).length
         },
         {
           mes: "Março", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 3 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 3 && cap.ano === ano).length
         },
         {
           mes: "Abril",
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 4 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 4 && cap.ano === ano).length
         },
         {
           mes: "Maio", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 5 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 5 && cap.ano === ano).length
         },
         {
           mes: "Junho", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 6 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 6 && cap.ano === ano).length
         },
         {
           mes: "Julho",
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 7 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 7 && cap.ano === ano).length
         },
         {
           mes: "Agosto", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 8 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 8 && cap.ano === ano).length
         },
         {
           mes: "Setembro", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 9 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 9 && cap.ano === ano).length
         },
         {
           mes: "Outubro",
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 10 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 10 && cap.ano === ano).length
         },
         {
           mes: "Novembro", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 11 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 11 && cap.ano === ano).length
         },
         {
           mes: "Dezembro", 
           dias: formatCapByDayHour({days: caps.filter((cap) => Number.parseInt(cap.mes) === 12 && cap.ano === ano).sort((a,b) => Number.parseInt(b.dia)-Number.parseInt(a.dia))}),
+          tampinhas: caps.filter((cap) => Number.parseInt(cap.mes) === 12 && cap.ano === ano).length
         },
       ],
+      tampinhas: caps.filter((cap) => cap.ano === ano).length
     });
   });
 
   result.sort((a,b) => Number.parseInt(b.ano)-Number.parseInt(a.ano))
+  console.log(result)
   return result;
 }
