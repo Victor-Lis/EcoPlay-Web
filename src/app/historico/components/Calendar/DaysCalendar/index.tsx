@@ -6,7 +6,7 @@ import CapsCount from "@/app/components/CapsCount";
 export default function DaysCalendar({mes}:{mes: MonthType}) {
  return (
    <div className="mt-10 w-10/12 flex flex-col justify-center items-end">
-    <div className="w-full flex justify-between items-center">
+    <div className="w-full gap-y-1 flex justify-between flex-wrap items-center">
       <h1 className="py-2 px-4 text-3xl text-white bg-green-500">{mes.mes}</h1>
       <CapsCount tampinhas={mes.tampinhas}/>
     </div>

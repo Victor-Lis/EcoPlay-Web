@@ -21,15 +21,15 @@ export default function DayBox({day}:{day: DayType}) {
     <div className="w-full bg-white border-2 border-green-500 p-2">
       <div className="w-full flex justify-between items-center">
         <h2 className="text-green-500 text-3xl font-bold">Manhã</h2>
-        <CapsCount extraClass="bg-white text-green-500 p-0" tampinhas={capsByPeriod({tampinhas: day.tampinhas, period: "Manhã"})}/>
+        <CapsCount boxClass="bg-white p-0" textClass="text-green-500" tampinhas={capsByPeriod({tampinhas: day.tampinhas, period: "Manhã"})}/>
       </div>
       <div className="w-full flex justify-between items-center">
         <h2 className="text-green-500 text-3xl font-bold">Tarde</h2>
-        <CapsCount extraClass="bg-white text-green-500 p-0" tampinhas={capsByPeriod({tampinhas: day.tampinhas, period: "Tarde"})}/>
+        <CapsCount boxClass="bg-white p-0" textClass="text-green-500" tampinhas={capsByPeriod({tampinhas: day.tampinhas, period: "Tarde"})}/>
       </div>
       <div className="w-full flex justify-between items-center">
         <h2 className="text-green-500 text-3xl font-bold">Noite</h2>
-        <CapsCount extraClass="bg-white text-green-500 p-0" tampinhas={capsByPeriod({tampinhas: day.tampinhas, period: "Noite"})}/>
+        <CapsCount boxClass="bg-white p-0" textClass="text-green-500" tampinhas={capsByPeriod({tampinhas: day.tampinhas, period: "Noite"})}/>
       </div>
     </div>
   </div>
