@@ -33,7 +33,7 @@ export default function MonthsContainer({
             onClick={() => handleSelectDay({ day: selectedMonth?.dias.find((d) => d.dia === `${dia}`) })}
             onKeyDown={() => handleSelectDay({ day: selectedMonth?.dias.find((d) => d.dia === `${dia}`) })}
             disabled={!selectedMonth?.dias.find((d) => d.dia === `${dia}`)}
-            className={`py-2 px-4 text-white w-14 text-center border-2 hover:opacity-85 hover:scale-[102.5%] duration-150 cursor-pointer ${!selectedMonth?.dias.find((d) => d.dia === `${dia}`) ? "bg-gray-400": "bg-green-500"}`}
+            className={`py-2 px-4 text-white w-14 text-center border-2 duration-150  ${!selectedMonth?.dias.find((d) => d.dia === `${dia}`) ? "bg-gray-400 cursor-not-allowed": "bg-green-500 hover:border-green-600 hover:opacity-85 hover:scale-[102.5%] cursor-pointer"}`}
             key={`${dia}`}
           >
             {dia}
