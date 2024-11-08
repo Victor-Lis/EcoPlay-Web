@@ -23,7 +23,7 @@ export default function Duvidas() {
             <>
               <p>
                 A ideia do projeto surgiu a partir de uma conversa entre o
-                professor coorientador Márcio Yugi e um dos integrantes, Victor
+                professor coorientador Márcio Yuji e um dos integrantes, Victor
                 Lis.
               </p>
               <p>
