@@ -20,6 +20,16 @@ const config: Config = {
         '16': 'repeat(16, minmax(0, 1fr))',
         '18': 'repeat(18, minmax(0, 1fr))',
       },
+      animation: {
+        'logo-start': 'start 1s linear',
+      },
+      keyframes: {
+        start: {
+          '0%' : { 'transform': 'translateY(-50%)', 'scale': '123%' },
+          // '50%': { 'transform': 'translateY(25%)', 'scale': '100%'},
+          '100%': { 'transform': 'translateY(0%)', 'scale': '100%'},
+        }
+      },
     },
   },
   plugins: [],
