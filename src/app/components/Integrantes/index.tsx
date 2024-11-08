@@ -34,6 +34,7 @@ export default function Integrantes() {
           names={[
             "Beatriz Albertini",
             "Carlos Augusto",
+            "Danilo Pereira",
             "Driely Cristine",
             "Karla Samire",
             "Marília Barbosa",
