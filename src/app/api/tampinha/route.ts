@@ -11,6 +11,8 @@ export async function GET(request: Request) {
   try {
     // if (senha == process.env.PASSWORD) {
       const today = new Date();
+      today.setHours(today.getHours() - 3);
+      
       await push(tampinhasRef, {
         data: `${isSmallerThenTen(today.getDate())}/${isSmallerThenTen(today.getMonth() + 1)}/${today.getFullYear()}`,
         hora: `${isSmallerThenTen(today.getHours())}:${isSmallerThenTen(today.getMinutes())}:${isSmallerThenTen(today.getSeconds())}`,

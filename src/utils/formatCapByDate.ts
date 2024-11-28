@@ -107,6 +107,5 @@ export function formatCapByDate({ caps }: { caps: CapType[] }): any[] {
   });
 
   result.sort((a,b) => Number.parseInt(b.ano)-Number.parseInt(a.ano))
-  console.log(result)
   return result;
 }

@@ -6,13 +6,14 @@ import { ref, onValue } from "firebase/database";
 import { createContext, useEffect, useState } from "react";
 
 import { dataRef, tampinhasRef } from '@/utils/firebaseConfig'
-import { YearType } from "@/@types/YearType";
+import type { YearType } from "@/@types/YearType";
 import { formatCapByDate } from "@/utils/formatCapByDate";
 
 interface CapContextData {
   total: number;
-  tampinhas: CapType[]
-  formattedTampinhas: YearType[]
+  tampinhas: CapType[],
+  formattedTampinhas: YearType[],
+  loading: boolean,
 }
 
 interface CapValType {
@@ -26,9 +27,11 @@ export const CapProvider = ({ children }: { children: ReactNode }) => {
   const [total, setTotal] = useState<number>(0)
   const [tampinhas, setTampinhas] = useState<CapType[]>([])
   const [formattedTampinhas, setFormattedTampinhas] = useState<YearType[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     const unsubscribe = onValue(tampinhasRef, (snapshot) => {
+      setLoading(true)
       const tampinhasVal = snapshot.val()
       if(!tampinhasVal) return
       const keys = Object.keys(tampinhasVal) || []
@@ -51,13 +54,15 @@ export const CapProvider = ({ children }: { children: ReactNode }) => {
 
       const formattedData = formatCapByDate({caps: data})
       setFormattedTampinhas(formattedData)
+
+      setLoading(false)
     });
 
     return () => unsubscribe();
   }, []);
 
   return (
-    <CapContext.Provider value={{ total, tampinhas, formattedTampinhas }}>
+    <CapContext.Provider value={{ total, tampinhas, formattedTampinhas, loading }}>
       {children}
     </CapContext.Provider>
   );

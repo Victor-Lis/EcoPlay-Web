@@ -4,6 +4,11 @@ import CapsCount from "@/app/components/CapsCount";
 
 export default function DayBox({day}:{day: DayType}) {
   function capsByPeriod({period, tampinhas}:{period: "Manhã" | "Tarde" | "Noite", tampinhas: CapType[]}){
+
+    tampinhas.sort((a,b) => Number(a.hora.slice(0, 2))-Number(b.hora.slice(0, 2)))
+
+    console.log(tampinhas)
+
     if(period === "Manhã"){
       return tampinhas.filter((tamp) => (Number(tamp.hora.slice(0, 2)) >= 6 && Number(tamp.hora.slice(0, 2)) < 12)).length
     }

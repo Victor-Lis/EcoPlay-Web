@@ -28,7 +28,6 @@ export default function MonthsContainer({
   return (
     <div className="w-full bg-white border-2 border-green-500 p-2 grid justify-items-center justify-center content-center grid-cols-4 min-[450px]:grid-cols-6 min-[650px]:grid-cols-9 min-[820px]:grid-cols-12 lg:grid-cols-16 xl:grid-cols-18 gap-x-2 gap-y-1">
       {allDays.map((dia) => {
-        selectedMonth?.dias.map((d) => console.log(`${formatNum(Number(d.dia))} === ${formatNum(dia)}`))
         return (
           <button
             type='button'
