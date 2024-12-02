@@ -503,6 +503,12 @@ export async function GET(request: Request) {
 - [Veja aqui o lado físico do projeto](https://github.com/Victor-Lis/Eco-Play)
 
 # Autores
+
+## Orientadores
+- [@Márcio-Yugi](https://www.linkedin.com/in/marcio-yuji-tokunaga-3aba8016/)
+- [@Kátia-Maria](https://www.linkedin.com/in/katia-fushita-180522160/)
+
+## Alunos
 - [@Karlos-Eduardo](https://www.linkedin.com/in/karlos-eduardo-marques-araujo-de-moraes-2b531b293/)
 - [@Miguel-Rosillo](https://www.linkedin.com/in/miguel-rosillo-8534a8294/)
 - [@Pedro-Henrique](https://www.linkedin.com/in/pedro-henrique-moraes-samsonas-4a0b3a29a/)
