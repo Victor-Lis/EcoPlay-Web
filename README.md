@@ -3,6 +3,18 @@ Lading Page do projeto EcoPlay, que tem sido o meu principal projeto nos último
 
 <br>
 
+<div align="center" style="display: inline_block">
+  <img align="center" alt="Ts" height="35" width="45" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
+  <img align="center" alt="React" height="35" width="45" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+  <img align="center" alt="Firebase" height="35" width="45" src="https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain.svg">
+  <img align="center" background="#fff" alt="GitHub" height="35" width="45" src="https://github.com/feathericons/feather/blob/main/icons/github.svg">
+  <img align="center" alt="Git" height="35" width="45" src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg">
+  <img align="center" alt="NextJS" height="35" width="45" src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-line.svg">
+  <img align="center" alt="Tailwind" width="35" height="35" src="https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg">
+</div>
+
+<br>
+
 ## SPA - Single Page Application
 Tive a ideia de para causar uma experiência diferente para os usuários trazer uma aplicação em uma tela só (exceto pela tela de histórico)
 
@@ -491,6 +503,12 @@ export async function GET(request: Request) {
 - [Veja aqui o lado físico do projeto](https://github.com/Victor-Lis/Eco-Play)
 
 # Autores
+
+## Orientadores
+- [@Márcio-Yugi](https://www.linkedin.com/in/marcio-yuji-tokunaga-3aba8016/)
+- [@Kátia-Maria](https://www.linkedin.com/in/katia-fushita-180522160/)
+
+## Alunos
 - [@Karlos-Eduardo](https://www.linkedin.com/in/karlos-eduardo-marques-araujo-de-moraes-2b531b293/)
 - [@Miguel-Rosillo](https://www.linkedin.com/in/miguel-rosillo-8534a8294/)
 - [@Pedro-Henrique](https://www.linkedin.com/in/pedro-henrique-moraes-samsonas-4a0b3a29a/)
