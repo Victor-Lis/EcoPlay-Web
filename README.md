@@ -495,12 +495,15 @@ export async function GET(request: Request) {
 
 <br>
 
-# [Teste você mesmo! Acesse Aqui!](https://ecoplay-landingpage.vercel.app/)
+# Teste você mesmo!
+ [Acesse Aqui!](https://ecoplay-landingpage.vercel.app/)
 
 <br>
 
 # Relacionados
 - [Veja aqui o lado físico do projeto](https://github.com/Victor-Lis/Eco-Play)
+
+<br>
 
 # Autores
 
