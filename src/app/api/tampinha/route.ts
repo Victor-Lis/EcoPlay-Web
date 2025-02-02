@@ -7,7 +7,11 @@ const isSmallerThenTen = (n: number) => (n < 10 ? `0${n}` : n);
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  // const senha = searchParams.get("senha");
+  const senha = searchParams.get("senha");
+  const curso = searchParams.get("curso");
+  const ano = searchParams.get("ano");
+  const periodo = searchParams.get("periodo");
+
   try {
     // if (senha == process.env.PASSWORD) {
       const today = new Date();
@@ -17,7 +21,13 @@ export async function GET(request: Request) {
         data: `${isSmallerThenTen(today.getDate())}/${isSmallerThenTen(today.getMonth() + 1)}/${today.getFullYear()}`,
         hora: `${isSmallerThenTen(today.getHours())}:${isSmallerThenTen(today.getMinutes())}:${isSmallerThenTen(today.getSeconds())}`,
       });
-      return NextResponse.json({ status: 200 });
+      return NextResponse.json({
+        senha,
+        curso,
+        ano,
+        periodo,
+        status: 200
+      });
     // }else {
       // throw new Error("Senha incorreta")
     // }
