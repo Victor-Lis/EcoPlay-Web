@@ -27,6 +27,8 @@ export async function GET(request: Request) {
   const periodo = searchParams.get("periodo");
   const caps = searchParams.get("caps") ? Number.parseInt(searchParams.get("caps") as string) : 1;
 
+  let total = 0;
+
   try {
     if (!senha || !curso || !ano || !periodo) {
       return NextResponse.json(errors.BAD_REQUEST, { status: errors.BAD_REQUEST.status });
@@ -51,11 +53,12 @@ export async function GET(request: Request) {
     }
 
     await runTransaction(totalRef, (valorAtual) => {
+      total = (valorAtual || 0) + caps;
       return (valorAtual || 0) + caps; // Adiciona a quantidade de caps
     });
 
     return NextResponse.json(
-      { message: "Tampinha salva com sucesso, o meio ambiente agradece!", curso, ano, periodo, caps },
+      { message: "Tampinha salva com sucesso, o meio ambiente agradece!", curso, ano, periodo, caps, total },
       { status: 200 }
     );
   } catch (error) {
