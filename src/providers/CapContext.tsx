@@ -1,68 +1,57 @@
 "use client";
 import type { ReactNode } from "react";
-import type { CapType } from "@/@types/CapType";
 
-import { ref, onValue } from "firebase/database";
+import { onValue } from "firebase/database";
 import { createContext, useEffect, useState } from "react";
 
-import { dataRef, tampinhasRef } from '@/utils/firebaseConfig'
-import type { YearType } from "@/@types/YearType";
-import { formatCapByDate } from "@/utils/formatCapByDate";
+import { tampinhasRef } from "@/utils/firebaseConfig";
+import type { CapValType } from "@/@types/CapValType";
+import type { CapsType } from "@/@types/CapsType";
 
 interface CapContextData {
   total: number;
-  tampinhas: CapType[],
-  formattedTampinhas: YearType[],
-  loading: boolean,
-}
-
-interface CapValType {
-  data: string,
-  hora: string
+  // tampinhas: CapsType | undefined;
+  loading: boolean;
 }
 
 export const CapContext = createContext({} as CapContextData);
 
 export const CapProvider = ({ children }: { children: ReactNode }) => {
-  const [total, setTotal] = useState<number>(0)
-  const [tampinhas, setTampinhas] = useState<CapType[]>([])
-  const [formattedTampinhas, setFormattedTampinhas] = useState<YearType[]>([])
-  const [loading, setLoading] = useState<boolean>(false)
+  const [total, setTotal] = useState<number>(0);
+  const [tampinhas, setTampinhas] = useState<CapsType>();
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const unsubscribe = onValue(tampinhasRef, (snapshot) => {
-      setLoading(true)
-      const tampinhasVal = snapshot.val()
-      if(!tampinhasVal) return
-      const keys = Object.keys(tampinhasVal) || []
-      const values = Object.values(snapshot.val() as CapValType[]) || []
+    const unsubscribe = onValue(tampinhasRef, async (snapshot) => {
+      const tampinhasVal = await snapshot.val();
 
-      setTotal(keys.length)
+      if (!tampinhasVal.total) return;
 
-      const data: CapType[] = []
-      keys?.map((key, i) => {
-        data.push({
-          key,
-          dia: values[i].data.slice(0, 2),
-          mes: values[i].data.slice(3, 5),
-          ano: values[i].data.slice(6, 10),
-          hora: values[i].hora,
-        })
-      })
-      
-      setTampinhas(data)
+      setTotal(tampinhasVal.total);
 
-      const formattedData = formatCapByDate({caps: data})
-      setFormattedTampinhas(formattedData)
+      Object.keys(tampinhasVal).map((curso) => {
+        if (curso === "total") return;
 
-      setLoading(false)
+        const cursoVal = tampinhasVal[curso];
+        if (!cursoVal) return;
+        Object.keys(cursoVal).map((ano) => {
+          const anoVal = cursoVal[Number(ano)];
+          if (!anoVal) return;
+
+          Object.keys(anoVal).map((periodo) => {
+            tampinhasVal[curso][ano][periodo] = Object.values(anoVal[periodo]);
+          });
+        });
+      });
+
+      setTampinhas(tampinhasVal)
     });
 
     return () => unsubscribe();
   }, []);
 
   return (
-    <CapContext.Provider value={{ total, tampinhas, formattedTampinhas, loading }}>
+    <CapContext.Provider value={{ total, loading }}>
       {children}
     </CapContext.Provider>
   );
